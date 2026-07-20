@@ -2,6 +2,7 @@ export const headerNav = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
+  { label: "Resources", href: "/resources" },
   { label: "News", href: "/news" },
   { label: "Careers", href: "/careers" },
 ] as const;
@@ -16,6 +17,7 @@ export const footerNav = {
   work: [
     { label: "Services", href: "/services" },
     { label: "Industries", href: "/industries" },
+    { label: "Resources", href: "/resources" },
     { label: "Case Studies", href: "/case-studies" },
     { label: "Licensed Partners", href: "/partners" },
   ],
