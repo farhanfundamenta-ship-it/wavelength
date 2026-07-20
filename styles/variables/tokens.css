@@ -1,0 +1,22 @@
+@theme {
+  --color-ink: #0a0f0c;
+  --color-ink-2: #10160f;
+  --color-ink-3: #171d18;
+  --color-line-dark: #232b25;
+
+  --color-paper: #ffffff;
+  --color-mist: #f4f6f4;
+  --color-line: #e3e8e3;
+
+  --color-heading: #0d1410;
+  --color-body: #576057;
+  --color-body-dark: #b7c2b5;
+  --color-muted-dark: #7c8a7a;
+
+  --color-accent: #6fcf43;
+  --color-accent-strong: #58b332;
+  --color-accent-soft: #dff3d3;
+
+  --font-display: var(--font-geist-sans);
+  --font-body: var(--font-geist-sans);
+}
