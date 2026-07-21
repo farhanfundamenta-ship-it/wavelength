@@ -104,8 +104,10 @@ export default function ReadinessAssessmentPage() {
 
       {/* ---- Interactive assessment ---- */}
       <Section id="assessment" tone="paper">
-        <Container className="mx-auto max-w-2xl">
-          <AssessmentWizard />
+        <Container>
+          <div className="mx-auto max-w-2xl">
+            <AssessmentWizard />
+          </div>
         </Container>
       </Section>
 

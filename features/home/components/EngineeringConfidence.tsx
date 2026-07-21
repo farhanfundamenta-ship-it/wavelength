@@ -1,27 +1,53 @@
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { Icon, type IconName } from "@/components/ui/icons";
+import { PremiumHighlightCard } from "@/features/home/components/PremiumHighlightCard";
+import type { IconName } from "@/components/ui/icons";
 
-const highlights: { title: string; body: string; icon: IconName }[] = [
+const highlights: {
+  category: string;
+  title: string;
+  body: string;
+  icon: IconName;
+  href: string;
+  stat?: string;
+  statLabel?: string;
+  className: string;
+}[] = [
   {
+    category: "Approach",
     title: "Independent Engineering",
     body: "Technology-agnostic solutions tailored to your operational needs — not tied to a single supplier.",
     icon: "compass",
+    href: "/technology",
+    stat: "0",
+    statLabel: "suppliers we're contractually tied to",
+    className: "lg:col-span-7 lg:min-h-[24rem]",
   },
   {
+    category: "Reach",
     title: "Global Experience",
     body: "Extensive expertise across maritime, industrial, and renewable energy projects worldwide.",
     icon: "globe",
+    href: "/industries",
+    className: "lg:col-span-5 lg:min-h-[24rem]",
   },
   {
+    category: "Longevity",
     title: "Future-Ready Design",
     body: "Systems engineered to adapt to evolving regulations, emerging fuels, and tomorrow's energy landscape.",
     icon: "trendingUp",
+    href: "/technology",
+    className: "lg:col-span-5 lg:min-h-[22rem]",
   },
   {
+    category: "Delivery",
     title: "End-to-End Support",
     body: "From feasibility studies and detailed design to implementation and commissioning assistance.",
     icon: "shuffle",
+    href: "/services",
+    stat: "6",
+    statLabel: "licensed fabrication partners on call",
+    className: "lg:col-span-7 lg:min-h-[22rem]",
   },
 ];
 
@@ -42,13 +68,6 @@ export function EngineeringConfidence() {
               animation-timeline: view();
               animation-range: entry 4% cover 26%;
             }
-            .wl6-card {
-              opacity: 0;
-              transform: translateY(36px);
-              animation: wl6-reveal-in linear both;
-              animation-timeline: view();
-              animation-range: entry 2% cover 30%;
-            }
             .wl6-word {
               opacity: 0;
               transform: translateY(0.5em);
@@ -66,11 +85,7 @@ export function EngineeringConfidence() {
         }
       `}</style>
 
-      {/* Soft accent bloom + oversized ghost index */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-40 top-24 h-[32rem] w-[32rem] rounded-full bg-accent/10 blur-3xl"
-      />
+ 
 
       <Container className="relative">
         {/* ---- Masthead: eyebrow + display heading + body ---- */}
@@ -96,26 +111,21 @@ export function EngineeringConfidence() {
           </div>
         </div>
 
-        {/* ---- Key highlights: interactive card grid ---- */}
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-20 lg:grid-cols-4">
-          {highlights.map((h) => (
-            <div
+        {/* ---- Key highlights: asymmetric bento of premium engineering cards ---- */}
+        <div className="mt-16 grid grid-cols-1 gap-5 md:mt-20 lg:grid-cols-12">
+          {highlights.map((h, i) => (
+            <PremiumHighlightCard
               key={h.title}
-              className="wl6-card group relative overflow-hidden rounded-sm border border-line bg-mist/40 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-transparent hover:bg-paper hover:shadow-2xl hover:shadow-ink/5"
-            >
-              {/* Top accent bar wipes in on hover */}
-              <span className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-out group-hover:scale-x-100" />
-
-              <span className="hex-clip relative flex h-12 w-12 items-center justify-center bg-ink text-accent transition-transform duration-500 group-hover:scale-105">
-                <Icon name={h.icon} className="h-5 w-5" />
-              </span>
-              <h3 className="relative mt-6 text-lg font-semibold tracking-tight text-heading">
-                {h.title}
-              </h3>
-              <p className="relative mt-3 text-sm leading-relaxed text-body">
-                {h.body}
-              </p>
-            </div>
+              index={i}
+              category={h.category}
+              title={h.title}
+              body={h.body}
+              icon={h.icon}
+              href={h.href}
+              stat={h.stat}
+              statLabel={h.statLabel}
+              className={h.className}
+            />
           ))}
         </div>
 

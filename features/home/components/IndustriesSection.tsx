@@ -41,12 +41,44 @@ export function IndustriesSection() {
         @keyframes wl4-panel-in {
           to { opacity: 1; transform: translateY(0) scale(1); }
         }
-        /* Expanding-panel accordion: hovered panel grows, siblings recede.
-           Falls back to equal columns without :hover (touch / keyboard tab). */
+        /* Expanding-panel accordion: first panel is expanded by default,
+           hovered panel grows, siblings recede. Falls back to equal columns
+           without :hover (touch / keyboard tab). */
         @media (min-width: 768px) {
           .wl4-panel { flex: 1 1 0%; }
+          .wl4-panel:first-child { flex-grow: 4.5; }
+          .wl4-panel:not(:first-child) { flex-grow: 0.75; }
           .wl4-panel:hover { flex-grow: 4.5; }
           .wl4-rail:hover .wl4-panel:not(:hover) { flex-grow: 0.75; }
+
+          /* First panel mirrors the hovered look by default: image saturated,
+             expanded content shown, collapsed label hidden, baseline drawn. */
+          .wl4-panel:first-child .wl4-bg-img {
+            transform: scale(1.05);
+            filter: grayscale(0) saturate(1) brightness(0.9);
+          }
+          .wl4-panel:first-child .wl4-collapsed-label { opacity: 0; }
+          .wl4-panel:first-child .wl4-expanded {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          .wl4-panel:first-child .wl4-baseline { transform: scaleX(1); }
+
+          /* Handed back to real :hover once another panel is hovered. */
+          .wl4-rail:hover .wl4-panel:first-child:not(:hover) .wl4-bg-img {
+            transform: none;
+            filter: grayscale(1) saturate(0) brightness(0.55);
+          }
+          .wl4-rail:hover .wl4-panel:first-child:not(:hover) .wl4-collapsed-label {
+            opacity: 0.9;
+          }
+          .wl4-rail:hover .wl4-panel:first-child:not(:hover) .wl4-expanded {
+            opacity: 0;
+            transform: translateY(0.75rem);
+          }
+          .wl4-rail:hover .wl4-panel:first-child:not(:hover) .wl4-baseline {
+            transform: scaleX(0);
+          }
         }
       `}</style>
 
@@ -71,7 +103,7 @@ export function IndustriesSection() {
       </Container>
 
       {/* ---- Full-bleed expanding-panel rail ---- */}
-      <div className="wl4-reveal mt-14 px-4 sm:px-6 md:mt-20 lg:px-10">
+      <div className="wl4-reveal mt-14 px-6 md:mt-20 md:px-10">
         <div className="wl4-rail flex flex-col gap-3 md:h-[32rem] md:flex-row lg:h-[36rem]">
           {industries.map((industry, i) => (
             <a
@@ -84,20 +116,20 @@ export function IndustriesSection() {
                 src={images[i]}
                 alt={industry.title}
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover grayscale brightness-[0.55] saturate-0 transition-all duration-[900ms] ease-out group-hover/panel:scale-105 group-hover/panel:grayscale-0 group-hover/panel:saturate-100 group-hover/panel:brightness-90"
+                className="wl4-bg-img absolute inset-0 h-full w-full object-cover grayscale brightness-[0.55] saturate-0 transition-all duration-[900ms] ease-out group-hover/panel:scale-105 group-hover/panel:grayscale-0 group-hover/panel:saturate-100 group-hover/panel:brightness-90"
               />
               {/* Legibility gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
 
               {/* Collapsed label: vertical-set title, hidden once expanded (desktop) */}
               <div className="absolute inset-x-0 bottom-0 hidden items-end justify-center pb-8 md:flex">
-                <span className="whitespace-nowrap text-lg font-semibold uppercase tracking-[0.2em] text-white opacity-90 transition-opacity duration-300 [writing-mode:vertical-rl] group-hover/panel:opacity-0 rotate-180">
+                <span className="wl4-collapsed-label whitespace-nowrap text-lg font-semibold uppercase tracking-[0.2em] text-white opacity-90 transition-opacity duration-300 [writing-mode:vertical-rl] group-hover/panel:opacity-0 rotate-180">
                   {industry.title}
                 </span>
               </div>
 
               {/* Expanded content: fades/slides in on hover (and always shown on mobile) */}
-              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 md:opacity-0 md:transition-all md:duration-500 md:translate-y-3 group-hover/panel:md:translate-y-0 group-hover/panel:md:opacity-100 group-hover/panel:md:delay-150">
+              <div className="wl4-expanded absolute inset-x-0 bottom-0 p-6 md:p-8 md:opacity-0 md:transition-all md:duration-500 md:translate-y-3 group-hover/panel:md:translate-y-0 group-hover/panel:md:opacity-100 group-hover/panel:md:delay-150">
                 <span className="hex-clip mb-5 flex h-11 w-11 items-center justify-center bg-accent text-ink">
                   <Icon name={industry.icon} className="h-5 w-5" />
                 </span>
@@ -117,7 +149,7 @@ export function IndustriesSection() {
               </div>
 
               {/* Accent baseline that grows on hover */}
-              <span className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-accent transition-transform duration-500 group-hover/panel:scale-x-100" />
+              <span className="wl4-baseline absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-accent transition-transform duration-500 group-hover/panel:scale-x-100" />
             </a>
           ))}
         </div>

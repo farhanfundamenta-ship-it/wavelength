@@ -41,8 +41,10 @@ export default function FuelCalculatorPage() {
 
       {/* ---- Interactive calculator ---- */}
       <Section tone="paper">
-        <Container className="mx-auto max-w-2xl">
-          <FuelCalculator />
+        <Container>
+          <div className="mx-auto max-w-2xl">
+            <FuelCalculator />
+          </div>
         </Container>
       </Section>
 
