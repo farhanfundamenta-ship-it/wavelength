@@ -5,6 +5,7 @@ import { Section } from "@/components/layout/Section";
 import { CTASection } from "@/components/sections/CTASection";
 import { Button } from "@/components/buttons/Button";
 import { Icon, type IconName } from "@/components/ui/icons";
+import { sectors as industries } from "@/data/industries/sectors";
 
 export const metadata: Metadata = buildMetadata({
   title: "Industries",
@@ -12,112 +13,6 @@ export const metadata: Metadata = buildMetadata({
     "Engineering solutions for maritime, offshore energy, industrial manufacturing, renewable energy, energy infrastructure, and research & innovation.",
   path: "/industries",
 });
-
-const industries: {
-  slug: string;
-  title: string;
-  description: string;
-  icon: IconName;
-  image: string;
-  capabilities: string[];
-}[] = [
-  {
-    slug: "maritime",
-    title: "Maritime",
-    description:
-      "Supporting the global shipping industry with advanced engineering for alternative fuels, cargo handling, onboard energy systems, and vessel decarbonisation.",
-    icon: "ship",
-    image: "https://loremflickr.com/1200/1500/cargo,ship",
-    capabilities: [
-      "Marine Fuel Systems",
-      "Cargo Handling Systems",
-      "Alternative Fuel Integration",
-      "LNG & Ammonia Systems",
-      "Retrofit Engineering",
-      "Regulatory Compliance",
-    ],
-  },
-  {
-    slug: "offshore-energy",
-    title: "Offshore Energy",
-    description:
-      "Engineering reliable systems for offshore platforms, floating installations, and renewable offshore infrastructure operating in demanding environments.",
-    icon: "anchor",
-    image: "https://loremflickr.com/1200/1500/offshore,platform",
-    capabilities: [
-      "Process Engineering",
-      "Energy Infrastructure",
-      "Safety Systems",
-      "Mechanical Design",
-      "Risk Assessments",
-      "System Integration",
-    ],
-  },
-  {
-    slug: "industrial-manufacturing",
-    title: "Industrial Manufacturing",
-    description:
-      "Helping industrial facilities modernize energy systems, improve efficiency, and reduce carbon emissions without compromising production.",
-    icon: "factory",
-    image: "https://loremflickr.com/1200/1500/factory,industrial",
-    capabilities: [
-      "Industrial Heat Pumps",
-      "Waste Heat Recovery",
-      "Process Optimisation",
-      "Energy Audits",
-      "Utility Systems",
-      "Plant Engineering",
-    ],
-  },
-  {
-    slug: "renewable-energy",
-    title: "Renewable Energy",
-    description:
-      "Engineering technologies that accelerate the transition toward renewable and low-carbon energy production.",
-    icon: "leaf",
-    image: "https://loremflickr.com/1200/1500/solar,windturbine",
-    capabilities: [
-      "Power-to-X",
-      "Hydrogen Systems",
-      "Biogas Handling",
-      "Carbon Reduction Projects",
-      "Energy Storage",
-      "Grid Integration",
-    ],
-  },
-  {
-    slug: "energy-infrastructure",
-    title: "Energy Infrastructure",
-    description:
-      "Designing robust infrastructure that supports the production, transportation, storage, and distribution of modern energy carriers.",
-    icon: "container",
-    image: "https://loremflickr.com/1200/1500/pipeline,terminal",
-    capabilities: [
-      "Storage Facilities",
-      "Fuel Distribution",
-      "Terminal Engineering",
-      "Cryogenic Systems",
-      "Process Design",
-      "Safety Engineering",
-    ],
-  },
-  {
-    slug: "research-innovation",
-    title: "Research & Innovation",
-    description:
-      "Collaborating with technology developers, research institutions, and industry partners to transform emerging concepts into commercially viable engineering solutions.",
-    icon: "compass",
-    image: "https://loremflickr.com/1200/1500/laboratory,engineer",
-    capabilities: [
-      "Feasibility Studies",
-      "Prototype Development",
-      "Technology Validation",
-      "Simulation",
-      "Design Reviews",
-      "Innovation Partnerships",
-    ],
-  },
-];
 
 const phases: { title: string; body: string; icon: IconName }[] = [
   {
@@ -563,6 +458,16 @@ export default function IndustriesPage() {
                           </li>
                         ))}
                       </ul>
+                      <a
+                        href={`/industries/${industry.slug}`}
+                        className="group/link mt-5 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.15em] text-accent"
+                      >
+                        View full profile
+                        <Icon
+                          name="arrowRight"
+                          className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1"
+                        />
+                      </a>
                     </div>
                   </div>
                 ))}

@@ -1,11 +1,34 @@
-export const headerNav = [
+import { sectors } from "@/data/industries/sectors";
+import { services } from "@/data/services/services";
+
+export interface HeaderNavItem {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+}
+
+export const headerNav: HeaderNavItem[] = [
   { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Industries", href: "/industries" },
+  {
+    label: "Services",
+    href: "/services",
+    children: services.map((service) => ({
+      label: service.title,
+      href: `/services/${service.slug}`,
+    })),
+  },
+  {
+    label: "Industries",
+    href: "/industries",
+    children: sectors.map((sector) => ({
+      label: sector.title,
+      href: `/industries/${sector.slug}`,
+    })),
+  },
   { label: "Resources", href: "/resources" },
   { label: "News", href: "/news" },
   { label: "Careers", href: "/careers" },
-] as const;
+];
 
 export const footerNav = {
   company: [
@@ -24,5 +47,6 @@ export const footerNav = {
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms", href: "/terms" },
+    { label: "Disclaimer", href: "/disclaimer" },
   ],
 } as const;

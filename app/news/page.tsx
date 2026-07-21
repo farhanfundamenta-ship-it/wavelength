@@ -3,6 +3,8 @@ import Link from "next/link";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { CTASection } from "@/components/sections/CTASection";
+import { Button } from "@/components/buttons/Button";
 import { Icon } from "@/components/ui/icons";
 import { news } from "@/data/news/news";
 
@@ -132,6 +134,16 @@ export default function NewsPage() {
           </div>
         </Container>
       </Section>
+
+      <CTASection
+        eyebrow="Stay ahead"
+        title="Have a project you'd like engineered?"
+        description="Tell us about your challenge. Our engineers will help design the right system for it."
+      >
+        <Button href="/contact" variant="solid" withArrow>
+          Get in Touch
+        </Button>
+      </CTASection>
     </>
   );
 }

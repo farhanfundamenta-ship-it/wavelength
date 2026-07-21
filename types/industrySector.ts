@@ -1,6 +1,6 @@
 import type { IconName } from "@/components/ui/icons";
 
-export interface Service {
+export interface IndustrySector {
   slug: string;
   title: string;
   description: string;

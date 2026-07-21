@@ -65,8 +65,9 @@ export default function ServicesPage() {
         <Container>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
-              <div
+              <a
                 key={service.slug}
+                href={`/services/${service.slug}`}
                 className="svc-card group relative overflow-hidden rounded-sm border border-line bg-mist/40 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-transparent hover:bg-paper hover:shadow-2xl hover:shadow-ink/5"
               >
                 <span className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-out group-hover:scale-x-100" />
@@ -80,7 +81,14 @@ export default function ServicesPage() {
                 <p className="relative mt-3 text-sm leading-relaxed text-body">
                   {service.description}
                 </p>
-              </div>
+                <span className="relative mt-5 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.15em] text-heading">
+                  Learn more
+                  <Icon
+                    name="arrowRight"
+                    className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </span>
+              </a>
             ))}
           </div>
         </Container>

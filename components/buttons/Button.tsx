@@ -13,6 +13,7 @@ interface ButtonProps {
   href?: string;
   onClick?: () => void;
   type?: "button" | "submit";
+  disabled?: boolean;
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
@@ -31,10 +32,12 @@ export function Button({
   href,
   onClick,
   type = "button",
+  disabled,
 }: ButtonProps) {
   const classes = cn(
     "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium tracking-wide transition-colors",
     variantClasses[variant],
+    disabled && "pointer-events-none opacity-40",
     className
   );
 
@@ -54,7 +57,7 @@ export function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
       {content}
     </button>
   );

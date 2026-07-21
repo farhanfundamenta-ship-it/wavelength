@@ -83,6 +83,19 @@ export function WhyWavelength() {
               post-fossil-fuel world.
             </p>
 
+            <a
+              href="/technology"
+              className="wl5-reveal group mt-8 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.15em] text-white"
+            >
+              <span className="border-b border-white/30 pb-1 transition-colors group-hover:border-accent">
+                See how we engineer it
+              </span>
+              <Icon
+                name="arrowRight"
+                className="h-4 w-4 text-accent transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </a>
+
             {/* Feature image, offset below copy */}
             <figure className="wl5-img mt-12 md:mt-16">
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-ink-2">

@@ -7,6 +7,8 @@ import { ServicesSection } from "@/features/home/components/ServicesSection";
 import { IndustriesSection } from "@/features/home/components/IndustriesSection";
 import { WhyWavelength } from "@/features/home/components/WhyWavelength";
 import { EngineeringConfidence } from "@/features/home/components/EngineeringConfidence";
+import { CTASection } from "@/components/sections/CTASection";
+import { Button } from "@/components/buttons/Button";
 
 export const metadata: Metadata = buildMetadata({
   title: siteConfig.name,
@@ -23,6 +25,15 @@ export default function Home() {
       <IndustriesSection />
       <WhyWavelength />
       <EngineeringConfidence />
+      <CTASection
+        eyebrow="Let's talk"
+        title="Ready to start your next project?"
+        description="Tell us about your challenge. Our engineers will help design the right system for it."
+      >
+        <Button href="/contact" variant="solid" withArrow>
+          Get in Touch
+        </Button>
+      </CTASection>
     </>
   );
 }
