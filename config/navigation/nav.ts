@@ -3,7 +3,7 @@ import { services } from "@/data/services/services";
 
 export interface HeaderNavItem {
   label: string;
-  href: string;
+  href?: string;
   children?: { label: string; href: string }[];
 }
 
@@ -25,8 +25,16 @@ export const headerNav: HeaderNavItem[] = [
       href: `/industries/${sector.slug}`,
     })),
   },
-  { label: "Resources", href: "/resources" },
-  { label: "News", href: "/news" },
+  {
+    label: "Resources",
+    children: [
+      { label: "Blogs", href: "/news" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Downloads", href: "/resources/downloads" },
+      { label: "Fuel Calculator", href: "/fuel-calculator" },
+      { label: "Readiness Assessment", href: "/readiness-assessment" },
+    ],
+  },
   { label: "Careers", href: "/careers" },
 ];
 
@@ -40,7 +48,7 @@ export const footerNav = {
   work: [
     { label: "Services", href: "/services" },
     { label: "Industries", href: "/industries" },
-    { label: "Resources", href: "/resources" },
+    { label: "Downloads", href: "/resources/downloads" },
     { label: "Case Studies", href: "/case-studies" },
     { label: "Licensed Partners", href: "/partners" },
   ],

@@ -73,7 +73,7 @@ export default async function ResourceDetailPage({ params }: ResourcePageProps) 
       <Section tone="mist" className="!py-10">
         <Container>
           <a
-            href="/resources"
+            href="/resources/downloads"
             className="group inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.15em] text-heading"
           >
             <Icon

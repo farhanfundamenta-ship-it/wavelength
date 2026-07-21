@@ -63,34 +63,47 @@ export function Header() {
             <nav className="hidden items-center gap-7 md:flex lg:gap-9">
               {headerNav.map((item) => {
                 const hasChildren = Boolean(item.children?.length);
+                const triggerClassName = cn(
+                  "flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.15em] transition-colors duration-300",
+                  floating
+                    ? "text-body hover:text-heading"
+                    : "text-white/70 hover:text-white"
+                );
 
                 return (
                   <div
-                    key={item.href}
+                    key={item.label}
                     className="relative"
                     onMouseEnter={() => hasChildren && setOpenDropdown(item.label)}
                     onMouseLeave={() => hasChildren && setOpenDropdown(null)}
                   >
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.15em] transition-colors duration-300",
-                        floating
-                          ? "text-body hover:text-heading"
-                          : "text-white/70 hover:text-white"
-                      )}
-                    >
-                      {item.label}
-                      {hasChildren ? (
-                        <Icon
-                          name="arrowRight"
-                          className={cn(
-                            "h-3 w-3 rotate-90 transition-transform duration-200",
-                            openDropdown === item.label && "-rotate-90"
-                          )}
-                        />
-                      ) : null}
-                    </Link>
+                    {item.href ? (
+                      <Link href={item.href} className={triggerClassName}>
+                        {item.label}
+                        {hasChildren ? (
+                          <Icon
+                            name="arrowRight"
+                            className={cn(
+                              "h-3 w-3 rotate-90 transition-transform duration-200",
+                              openDropdown === item.label && "-rotate-90"
+                            )}
+                          />
+                        ) : null}
+                      </Link>
+                    ) : (
+                      <span className={cn(triggerClassName, "cursor-default")}>
+                        {item.label}
+                        {hasChildren ? (
+                          <Icon
+                            name="arrowRight"
+                            className={cn(
+                              "h-3 w-3 rotate-90 transition-transform duration-200",
+                              openDropdown === item.label && "-rotate-90"
+                            )}
+                          />
+                        ) : null}
+                      </span>
+                    )}
 
                     {hasChildren && openDropdown === item.label ? (
                       /* pt-3 (not mt-3) keeps this box flush against the
@@ -162,20 +175,29 @@ export function Header() {
               )}
             >
               <div className="flex flex-col gap-1 py-4">
-                {headerNav.map((item) => (
-                  <div key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className={cn(
-                        "block rounded-lg px-3 py-3 text-sm font-medium transition-colors",
-                        floating
-                          ? "text-body hover:bg-mist hover:text-heading"
-                          : "text-white/70 hover:bg-white/5 hover:text-white"
-                      )}
-                    >
-                      {item.label}
-                    </Link>
+                {headerNav.map((item) => {
+                  const mobileClassName = cn(
+                    "block rounded-lg px-3 py-3 text-sm font-medium transition-colors",
+                    floating
+                      ? "text-body hover:bg-mist hover:text-heading"
+                      : "text-white/70 hover:bg-white/5 hover:text-white"
+                  );
+
+                  return (
+                  <div key={item.label}>
+                    {item.href ? (
+                      <Link
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        className={mobileClassName}
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <span className={cn(mobileClassName, "cursor-default")}>
+                        {item.label}
+                      </span>
+                    )}
                     {item.children?.length ? (
                       <div
                         className={cn(
@@ -201,7 +223,8 @@ export function Header() {
                       </div>
                     ) : null}
                   </div>
-                ))}
+                  );
+                })}
                 <Link
                   href="/contact"
                   onClick={() => setOpen(false)}
