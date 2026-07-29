@@ -52,7 +52,7 @@ export default function DownloadsPage() {
                 <span className="hex-clip relative flex h-12 w-12 items-center justify-center bg-ink text-accent transition-transform duration-500 group-hover:scale-105">
                   <Icon name={resource.icon} className="h-5 w-5" />
                 </span>
-                <p className="relative mt-6 text-xs font-medium uppercase tracking-[0.15em] text-accent-strong">
+                <p className="relative mt-6 text-xs font-medium uppercase tracking-[0.15em] text-accent-deep">
                   {resource.meta}
                 </p>
                 <h2 className="relative mt-2 text-lg font-semibold tracking-tight text-heading">

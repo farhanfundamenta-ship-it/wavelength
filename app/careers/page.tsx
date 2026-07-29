@@ -115,7 +115,7 @@ export default function CareersPage() {
                 className="car-reveal group grid grid-cols-1 gap-x-10 gap-y-3 border-t border-heading/80 py-8 transition-colors duration-500 hover:border-accent last:border-b sm:grid-cols-12"
               >
                 <div className="sm:col-span-6">
-                  <h3 className="text-xl font-semibold tracking-tight text-heading transition-colors duration-500 group-hover:text-accent-strong md:text-2xl">
+                  <h3 className="text-xl font-semibold tracking-tight text-heading transition-colors duration-500 group-hover:text-accent-deep md:text-2xl">
                     {role.title}
                   </h3>
                   <p className="mt-2 max-w-lg text-sm leading-relaxed text-body">

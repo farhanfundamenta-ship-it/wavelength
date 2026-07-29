@@ -90,7 +90,7 @@ export default function ContactPage() {
                 </p>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="mt-2 block text-lg font-medium text-heading transition-colors hover:text-accent-strong"
+                  className="mt-2 block text-lg font-medium text-heading transition-colors hover:text-accent-deep"
                 >
                   {siteConfig.email}
                 </a>
@@ -114,13 +114,13 @@ export default function ContactPage() {
                 <div className="mt-3 flex gap-5">
                   <a
                     href={siteConfig.social.linkedin}
-                    className="text-sm text-body transition-colors hover:text-accent-strong"
+                    className="text-sm text-body transition-colors hover:text-accent-deep"
                   >
                     LinkedIn
                   </a>
                   <a
                     href={siteConfig.social.twitter}
-                    className="text-sm text-body transition-colors hover:text-accent-strong"
+                    className="text-sm text-body transition-colors hover:text-accent-deep"
                   >
                     Twitter
                   </a>
@@ -222,7 +222,7 @@ export default function ContactPage() {
                   {faq.question}
                   <Icon
                     name="close"
-                    className="con-faq-icon h-4 w-4 shrink-0 text-accent-strong"
+                    className="con-faq-icon h-4 w-4 shrink-0 text-accent-deep"
                   />
                 </summary>
                 <p className="mt-4 max-w-2xl text-sm leading-relaxed text-body">

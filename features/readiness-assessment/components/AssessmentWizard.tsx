@@ -341,7 +341,7 @@ export function AssessmentWizard() {
         <div className="flex flex-wrap items-center gap-6">
           <RadialGauge percent={result.percent} size={88} />
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.28em] text-accent-strong">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-accent-deep">
               Your readiness score
             </p>
             <p className="mt-2 text-2xl font-semibold tracking-tight text-heading">{result.tier}</p>

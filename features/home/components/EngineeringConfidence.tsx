@@ -56,52 +56,21 @@ const quote = ["Practical engineering.", "Sustainable solutions.", "Long-term pa
 export function EngineeringConfidence() {
   return (
     <Section tone="paper" className="relative overflow-hidden">
-      {/* Scoped, self-contained scroll-reveal. Degrades to fully-visible
-          content where scroll-driven animation / motion preference is absent. */}
-      <style>{`
-        @supports (animation-timeline: view()) {
-          @media (prefers-reduced-motion: no-preference) {
-            .wl6-reveal {
-              opacity: 0;
-              transform: translateY(28px);
-              animation: wl6-reveal-in linear both;
-              animation-timeline: view();
-              animation-range: entry 4% cover 26%;
-            }
-            .wl6-word {
-              opacity: 0;
-              transform: translateY(0.5em);
-              animation: wl6-word-in linear both;
-              animation-timeline: view();
-              animation-range: entry 6% cover 40%;
-            }
-          }
-        }
-        @keyframes wl6-reveal-in {
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes wl6-word-in {
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-
- 
-
       <Container className="relative">
         {/* ---- Masthead: eyebrow + display heading + body ---- */}
         <div className="grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-12">
           <div className="md:col-span-7">
-            <div className="wl6-reveal flex items-center gap-3 text-xs font-medium uppercase tracking-[0.28em] text-body">
+            <div className="reveal flex items-center gap-3 text-xs font-medium uppercase tracking-[0.28em] text-body">
               <span className="inline-block h-2 w-2 rounded-full bg-accent" />
               Why Wavelength
             </div>
-            <h2 className="wl6-reveal mt-6 max-w-2xl text-4xl font-semibold leading-[1.03] tracking-tight text-heading sm:text-5xl lg:text-[3.5rem]">
+            <h2 className="reveal mt-6 max-w-2xl text-4xl font-semibold leading-[1.03] tracking-tight text-heading sm:text-5xl lg:text-[3.5rem]">
               Engineering confidence for every stage of the
-              <span className="text-accent-strong"> energy transition</span>.
+              <span className="text-accent-deep"> energy transition</span>.
             </h2>
           </div>
           <div className="md:col-span-5 md:pt-16">
-            <p className="wl6-reveal border-t border-heading/80 pt-6 text-base leading-relaxed text-body md:text-lg">
+            <p className="reveal border-t border-heading/80 pt-6 text-base leading-relaxed text-body md:text-lg">
               From concept development to detailed engineering and commissioning
               support, we help maritime and industrial businesses adopt cleaner
               technologies with confidence. Every solution is designed to meet
@@ -130,7 +99,7 @@ export function EngineeringConfidence() {
         </div>
 
         {/* ---- Highlight quote: oversized statement band ---- */}
-        <figure className="wl6-reveal relative mt-20 md:mt-28">
+        <figure className="reveal relative mt-20 md:mt-28">
           <span
             aria-hidden
             className="absolute -left-2 -top-10 select-none font-serif text-[10rem] leading-none text-accent/25 md:-left-6 md:text-[14rem]"
@@ -141,10 +110,10 @@ export function EngineeringConfidence() {
             {quote.map((phrase, i) => (
               <span
                 key={phrase}
-                className="wl6-word inline-block"
+                className="reveal-word inline-block"
                 style={{ animationDelay: `${i * 60}ms` }}
               >
-                <span className={i === quote.length - 1 ? "text-accent-strong" : undefined}>
+                <span className={i === quote.length - 1 ? "text-accent-deep" : undefined}>
                   {phrase}
                 </span>
                 {i < quote.length - 1 ? <span aria-hidden> </span> : null}

@@ -305,7 +305,7 @@ export function FuelCalculator() {
 
         {unlocked ? (
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.28em] text-accent-strong">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-accent-deep">
               Best fit
             </p>
             <h3 className="mt-3 text-2xl font-semibold tracking-tight text-heading md:text-3xl">
@@ -357,7 +357,7 @@ export function FuelCalculator() {
                 Request Engineering Consultation
               </Button>
               {downloadRequested ? (
-                <p className="flex items-center gap-2 text-sm font-medium text-accent-strong">
+                <p className="flex items-center gap-2 text-sm font-medium text-accent-deep">
                   <Icon name="shield" className="h-4 w-4" />
                   The handbook is on its way to {lead.email}.
                 </p>

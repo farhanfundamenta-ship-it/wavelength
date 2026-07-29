@@ -32,37 +32,9 @@ const reasons: { title: string; description: string; icon: IconName }[] = [
 export function WhyWavelength() {
   return (
     <Section tone="ink-2" className="relative overflow-hidden">
-      {/* Scoped scroll-reveal. Degrades to fully-visible content where
-          scroll-driven animation or motion preference is unavailable. */}
-      <style>{`
-        @supports (animation-timeline: view()) {
-          @media (prefers-reduced-motion: no-preference) {
-            .wl5-reveal {
-              opacity: 0;
-              transform: translateY(30px);
-              animation: wl5-reveal-in linear both;
-              animation-timeline: view();
-              animation-range: entry 4% cover 28%;
-            }
-            .wl5-img {
-              clip-path: inset(0 0 14% 0);
-              animation: wl5-img-in linear both;
-              animation-timeline: view();
-              animation-range: entry 0% cover 36%;
-            }
-          }
-        }
-        @keyframes wl5-reveal-in {
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes wl5-img-in {
-          to { clip-path: inset(0 0 0 0); }
-        }
-      `}</style>
-
       <Container>
         {/* ---- Masthead kicker ---- */}
-        <div className="wl5-reveal flex items-center gap-3 text-xs font-medium uppercase tracking-[0.28em] text-body-dark">
+        <div className="reveal flex items-center gap-3 text-xs font-medium uppercase tracking-[0.28em] text-body-dark">
           <span className="inline-block h-2 w-2 rounded-full bg-accent" />
           Why Wavelength
         </div>
@@ -71,13 +43,13 @@ export function WhyWavelength() {
         <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-16 md:mt-14 md:grid-cols-12">
           {/* Left rail: oversized heading, editorial paragraph, feature image */}
           <div className="md:col-span-5">
-            <h2 className="wl5-reveal max-w-xl text-4xl font-semibold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-[3.75rem]">
+            <h2 className="reveal max-w-xl text-4xl font-semibold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-[3.75rem]">
               A pragmatic path to
               <span className="text-accent"> zero-carbon </span>
               assets.
             </h2>
 
-            <p className="wl5-reveal mt-8 max-w-md text-base leading-relaxed text-body-dark md:text-lg">
+            <p className="reveal mt-8 max-w-md text-base leading-relaxed text-body-dark md:text-lg">
               The world doesn&rsquo;t stop for the energy transition. Our systems
               keep your business running today while building toward a
               post-fossil-fuel world.
@@ -85,7 +57,7 @@ export function WhyWavelength() {
 
             <a
               href="/technology"
-              className="wl5-reveal group mt-8 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.15em] text-white"
+              className="reveal group mt-8 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.15em] text-white"
             >
               <span className="border-b border-white/30 pb-1 transition-colors group-hover:border-accent">
                 See how we engineer it
@@ -97,7 +69,7 @@ export function WhyWavelength() {
             </a>
 
             {/* Feature image, offset below copy */}
-            <figure className="wl5-img mt-12 md:mt-16">
+            <figure className="reveal-img mt-12 md:mt-16">
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-ink-2">
                 <img
                   src="/images/view-water-tank-storage.jpg"
@@ -118,7 +90,7 @@ export function WhyWavelength() {
               {reasons.map((reason) => (
                 <div
                   key={reason.title}
-                  className="wl5-reveal group grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 border-t border-line-dark py-7 transition-colors duration-500 hover:border-accent/50 md:gap-x-10"
+                  className="reveal group grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 border-t border-line-dark py-7 transition-colors duration-500 hover:border-accent/50 md:gap-x-10"
                 >
                   <span className="hex-clip flex h-11 w-11 shrink-0 items-center justify-center bg-ink text-accent transition-transform duration-500 group-hover:scale-105">
                     <Icon name={reason.icon} className="h-5 w-5" />

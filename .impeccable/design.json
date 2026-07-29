@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-29T13:15:00Z",
+  "title": "Design System: Wavelength Technology Centre",
+  "extensions": {
+    "colorMeta": {
+      "signal-green": { "role": "primary", "displayName": "Signal Green", "canonical": "#6fcf43", "tonalRamp": ["#1e3d10", "#366e1c", "#4e9e28", "#67cc38", "#8cd969", "#b1e599", "#d7f2ca", "#effaeb"] },
+      "signal-green-strong": { "role": "primary", "displayName": "Signal Green Strong", "canonical": "#58b332" },
+      "signal-green-soft": { "role": "primary", "displayName": "Signal Green Soft", "canonical": "#dff3d3" },
+      "signal-green-deep": { "role": "primary", "displayName": "Signal Green Deep", "canonical": "#3b7821", "tonalRamp": ["#1e3d10", "#275016", "#31641c", "#3b7821", "#458c27", "#4e9f2d", "#58ad33", "#effaeb"] },
+      "deep-hull-black": { "role": "neutral", "displayName": "Deep Hull Black", "canonical": "#0a0f0c", "tonalRamp": ["#1f2e25", "#375342", "#50775f", "#699b7d", "#8eb49d", "#b3ccbd", "#d7e4dd", "#f0f5f2"] },
+      "deep-hull-black-2": { "role": "neutral", "displayName": "Deep Hull Black 2", "canonical": "#10160f" },
+      "deep-hull-black-3": { "role": "neutral", "displayName": "Deep Hull Black 3", "canonical": "#171d18" },
+      "hull-line-dark": { "role": "neutral", "displayName": "Hull Line Dark", "canonical": "#232b25" },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#ffffff" },
+      "mist": { "role": "neutral", "displayName": "Mist", "canonical": "#f4f6f4" },
+      "line": { "role": "neutral", "displayName": "Line", "canonical": "#e3e8e3", "tonalRamp": ["#222a22", "#3e4c3e", "#5a6d5a", "#768e76", "#97aa97", "#b9c6b9", "#dbe1db", "#f1f4f1"] },
+      "heading-ink": { "role": "neutral", "displayName": "Heading Ink", "canonical": "#0d1410" },
+      "body-ink": { "role": "neutral", "displayName": "Body Ink", "canonical": "#576057" },
+      "body-ink-dark": { "role": "neutral", "displayName": "Body Ink Dark", "canonical": "#b7c2b5" },
+      "muted-ink-dark": { "role": "neutral", "displayName": "Muted Ink Dark", "canonical": "#7c8a7a" }
+    },
+    "typographyMeta": {
+      "display-hero": { "displayName": "Display Hero", "purpose": "Home hero H1 only — the single largest, heaviest step on the site." },
+      "display": { "displayName": "Display", "purpose": "Section H2 headings. Bold, tight leading, tight tracking." },
+      "body": { "displayName": "Body", "purpose": "Paragraph copy, capped by container max-width rather than an explicit ch value." },
+      "label": { "displayName": "Label", "purpose": "Uppercase eyebrow labels, nav items, footer column headers. Always wide-tracked." },
+      "label-micro": { "displayName": "Label Micro", "purpose": "Photo-caption chips and dense stat sub-labels. Smallest step; never interactive." }
+    },
+    "shadows": [
+      { "name": "floating-dock", "value": "0 12px 40px -12px rgba(10,15,12,0.25)", "purpose": "Header only, once it un-docks and floats on scroll (the Dock Rule)." },
+      { "name": "overlay", "value": "0 25px 50px -12px rgba(0,0,0,0.25)", "purpose": "Open nav dropdowns, toasts — anything above the base page layer." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default easing for reveal/hover transitions across Framer Motion sections." },
+      { "name": "duration-chrome", "value": "400ms", "purpose": "Header dock/undock transition." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid Signal Green CTA, black text, pill shape.",
+      "html": "<button class=\"ds-btn-primary\">Get in Touch</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--color-accent, #6fcf43); color: var(--color-ink, #0a0f0c); border: 1px solid transparent; border-radius: 9999px; padding: 12px 24px; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: background 0.2s ease; } .ds-btn-primary:hover { background: var(--color-accent-strong, #58b332); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-accent-strong, #58b332); outline-offset: 2px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Transparent, Signal Green border, for secondary actions on light surfaces.",
+      "html": "<button class=\"ds-btn-outline\">Learn More</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: var(--color-heading, #0d1410); border: 1px solid var(--color-accent, #6fcf43); border-radius: 9999px; padding: 12px 24px; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: background 0.2s ease; } .ds-btn-outline:hover { background: var(--color-accent-soft, #dff3d3); } .ds-btn-outline:focus-visible { outline: 2px solid var(--color-accent-strong, #58b332); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "No border or fill; text-only action, Signal Green on hover.",
+      "html": "<button class=\"ds-btn-ghost\">Skip</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: var(--color-heading, #0d1410); border: none; border-radius: 9999px; padding: 12px 24px; font-size: 14px; font-weight: 500; transition: color 0.2s ease; } .ds-btn-ghost:hover { color: var(--color-accent, #6fcf43); }"
+    },
+    {
+      "name": "Flat Card",
+      "kind": "card",
+      "refersTo": "card-flat",
+      "description": "Border-only resting card (ServiceCard). No shadow at rest, per the Dock Rule.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-badge\">⚙</div><h3 class=\"ds-card-title\">Systems Engineering</h3><p class=\"ds-card-body\">Full lifecycle design, from concept through commissioning.</p></div>",
+      "css": ".ds-card { border: 1px solid var(--color-line, #e3e8e3); background: var(--color-paper, #fff); border-radius: 16px; padding: 24px; transition: border-color 0.2s ease; } .ds-card:hover { border-color: var(--color-accent, #6fcf43); } .ds-card-badge { clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%); display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: var(--color-accent-soft, #dff3d3); color: var(--color-accent-strong, #58b332); font-size: 18px; transition: background 0.2s ease, color 0.2s ease; } .ds-card:hover .ds-card-badge { background: var(--color-accent, #6fcf43); color: var(--color-ink, #0a0f0c); } .ds-card-title { margin-top: 20px; font-size: 18px; font-weight: 600; color: var(--color-heading, #0d1410); } .ds-card-body { margin-top: 8px; font-size: 14px; line-height: 1.6; color: var(--color-body, #576057); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Bottom-border-only field; form-as-ledger-line treatment.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Email address\" />",
+      "css": ".ds-input { width: 100%; border: none; border-bottom: 1px solid var(--color-line, #e3e8e3); background: transparent; padding: 10px 0; font-size: 14px; color: var(--color-heading, #0d1410); transition: border-color 0.2s ease; } .ds-input::placeholder { color: color-mix(in srgb, var(--color-body, #576057) 50%, transparent); } .ds-input:focus { outline: none; border-bottom-color: var(--color-accent-strong, #58b332); } .ds-input.error { border-bottom-color: #ef4444; }"
+    },
+    {
+      "name": "Hex Icon Badge",
+      "kind": "custom",
+      "refersTo": "badge-hex",
+      "description": "The system's signature shape: hexagon-clipped icon container. Appears nowhere except icon badges.",
+      "html": "<div class=\"ds-badge-hex\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"5\" r=\"2\"/><line x1=\"12\" y1=\"7\" x2=\"12\" y2=\"21\"/><path d=\"M5 12a7 7 0 0 0 14 0\"/></svg></div>",
+      "css": ".ds-badge-hex { clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%); display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: var(--color-ink, #0a0f0c); color: var(--color-accent, #6fcf43); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Engineering Ledger",
+    "overview": "Wavelength's interface reads like a technical record of real programmes, not a marketing brochure. It is editorial and documentary: dense horizontal rules, asymmetric column splits, and numbers presented as proof (stat rows, metrics) carry more weight than illustration or ornament. The system trusts restraint — a single accent color, a single typeface, flat surfaces at rest — because the credibility of the work being described (systems that run vessels and plants for decades) would be undercut by a visually loud interface. Density is moderate-to-generous: sections breathe (clamp(80px, 9vw, 112px) vertical rhythm), but within a section, content sits close and rule-divided rather than card-scattered. Depth is used sparingly and only as a state signal.",
+    "keyCharacteristics": [
+      "Editorial ledger structure: rules, splits, and stat rows over decorative cards",
+      "One accent color (Signal Green), used sparingly as a functional highlight",
+      "Flat surfaces at rest; shadow appears only when something detaches from the page (the Dock Rule)",
+      "Single typeface (Geist Sans) doing all display, body, and label work",
+      "Hexagon-clipped icon badges as the one recurring signature shape"
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "Signal Green appears on a small minority of any given screen — icon fills, CTAs, dividers, dots. Its rarity is what makes it read as a signal rather than a brand color wash.", "section": "colors" },
+      { "name": "The One Face Rule", "body": "Every role — display, body, label — is Geist Sans. A second family is not introduced without an explicit product decision.", "section": "typography" },
+      { "name": "The Dock Rule", "body": "A shadow appears only when something detaches from the base page layer: the floating Header, an open dropdown, a toast. Shadow signals a state change, not resting decoration.", "section": "elevation" },
+      { "name": "The Deep-For-Text Rule", "body": "Signal Green Strong (#58b332) measures 2.66:1 on Paper — fails WCAG AA even at large-text size. Any time the accent colors text sitting on a light surface, use Signal Green Deep (#3b7821, 5.39:1 Paper / 4.96:1 Mist / 4.60:1 Signal Green Soft) instead; Signal Green / Signal Green Strong stay for icon fills, buttons, and text on dark surfaces.", "section": "colors" }
+    ],
+    "dos": [
+      "Do keep Signal Green to icon fills, CTAs, dividers, and dots — never a large background fill.",
+      "Do use the hexagon clip exclusively for icon badges; it is the system's one signature shape.",
+      "Do reserve shadows for elements that detach from the page layer.",
+      "Do use rounded-full for every button regardless of variant.",
+      "Do prefer editorial rules/splits/stat-rows over decorative card grids for comparisons or proof."
+    ],
+    "donts": [
+      "Don't introduce a second typeface without an explicit product decision.",
+      "Don't add resting shadows to cards.",
+      "Don't treat IndustryCard's shadow-sm ring-1 as a pattern to extend — it's a pre-existing inconsistency.",
+      "Don't use gradients; none exist anywhere in the current system."
+    ]
+  }
+}

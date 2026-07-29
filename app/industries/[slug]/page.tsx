@@ -303,7 +303,7 @@ export default async function IndustrySectorPage({ params }: IndustryPageProps) 
                 />
               </div>
               <div className="md:col-span-6 md:self-center">
-                <p className="text-xs font-medium uppercase tracking-[0.15em] text-accent-strong">
+                <p className="text-xs font-medium uppercase tracking-[0.15em] text-accent-deep">
                   {relatedCaseStudy.sector} &middot; {relatedCaseStudy.location}
                 </p>
                 <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-heading md:text-3xl">

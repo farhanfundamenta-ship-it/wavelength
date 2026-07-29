@@ -43,7 +43,7 @@ export function PremiumHighlightCard({
   }
 
   const glow = useTransform([mouseX, mouseY], ([x, y]) =>
-    `radial-gradient(480px circle at ${x}px ${y}px, rgba(111,207,67,0.16), transparent 55%)`
+    `radial-gradient(480px circle at ${x}px ${y}px, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 55%)`
   );
 
   return (
@@ -114,13 +114,13 @@ export function PremiumHighlightCard({
         <div className="mt-auto pt-8">
           {/* animated technical-drawing baseline */}
           <div className="relative h-px w-full bg-white/[0.08]">
-            <span className="absolute inset-y-0 left-0 w-0 bg-accent transition-all duration-500 ease-out group-hover:w-full" />
+            <span className="absolute inset-y-0 left-0 w-0 bg-accent transition-all duration-500 ease-out group-hover:w-full group-focus-within:w-full" />
           </div>
 
           {/* CTA revealed progressively on hover */}
           <Link
             href={href}
-            className="mt-5 flex max-h-0 items-center gap-2 overflow-hidden text-xs font-medium uppercase tracking-[0.15em] text-accent opacity-0 transition-all duration-400 ease-out group-hover:max-h-8 group-hover:opacity-100"
+            className="mt-5 flex max-h-0 items-center gap-2 overflow-hidden rounded text-xs font-medium uppercase tracking-[0.15em] text-accent opacity-0 outline-none transition-all duration-400 ease-out focus-visible:ring-2 focus-visible:ring-accent group-hover:max-h-8 group-hover:opacity-100 group-focus-within:max-h-8 group-focus-within:opacity-100"
           >
             Learn more
             <Icon

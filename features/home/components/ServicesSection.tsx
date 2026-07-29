@@ -20,37 +20,9 @@ const capabilities = [
 export function ServicesSection() {
   return (
     <Section tone="ink" className="relative overflow-hidden">
-      {/* Scoped scroll-reveal. Degrades to fully-visible content where
-          scroll-driven animation or motion preference is unavailable. */}
-      <style>{`
-        @supports (animation-timeline: view()) {
-          @media (prefers-reduced-motion: no-preference) {
-            .wl3-reveal {
-              opacity: 0;
-              transform: translateY(30px);
-              animation: wl3-reveal-in linear both;
-              animation-timeline: view();
-              animation-range: entry 4% cover 28%;
-            }
-            .wl3-img {
-              clip-path: inset(0 0 14% 0);
-              animation: wl3-img-in linear both;
-              animation-timeline: view();
-              animation-range: entry 0% cover 36%;
-            }
-          }
-        }
-        @keyframes wl3-reveal-in {
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes wl3-img-in {
-          to { clip-path: inset(0 0 0 0); }
-        }
-      `}</style>
-
       <Container>
         {/* ---- Masthead kicker ---- */}
-        <div className="wl3-reveal flex items-center gap-3 text-xs font-medium uppercase tracking-[0.28em] text-body-dark">
+        <div className="reveal flex items-center gap-3 text-xs font-medium uppercase tracking-[0.28em] text-body-dark">
           <span className="inline-block h-2 w-2 rounded-full bg-accent" />
           Capabilities
         </div>
@@ -59,7 +31,7 @@ export function ServicesSection() {
         <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-14 md:mt-14 md:grid-cols-12">
           {/* Dominant full-height image, narrow tall column on the left */}
           <div className="relative md:col-span-5">
-            <figure className="wl3-img">
+            <figure className="reveal-img">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-ink-2 md:aspect-[3/4] md:min-h-[34rem]">
                 <img
                   src="/images/high-angle-view-river-flowing-through-rocks.jpg"
@@ -74,7 +46,7 @@ export function ServicesSection() {
             </figure>
 
             {/* Small supporting image #1, overlapping the dominant image corner */}
-            <figure className="wl3-img absolute -bottom-10 -right-6 hidden w-40 lg:block xl:w-48">
+            <figure className="reveal-img absolute -bottom-10 -right-6 hidden w-40 lg:block xl:w-48">
               <div className="relative aspect-square w-full overflow-hidden rounded-sm bg-ink-3 shadow-2xl shadow-black/40 ring-1 ring-white/10">
                 <img
                   src="/images/view-water-tank-storage.jpg"
@@ -88,13 +60,13 @@ export function ServicesSection() {
 
           {/* Right rail: oversized heading, editorial paragraph, capabilities */}
           <div className="md:col-span-7 md:pl-4 md:pt-6">
-            <h2 className="wl3-reveal max-w-2xl text-4xl font-semibold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-[3.75rem]">
+            <h2 className="reveal max-w-2xl text-4xl font-semibold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-[3.75rem]">
               Building the infrastructure that carries
               <span className="text-accent"> industry </span>
               through the transition.
             </h2>
 
-            <p className="wl3-reveal mt-8 max-w-md text-base leading-relaxed text-body-dark md:text-lg">
+            <p className="reveal mt-8 max-w-md text-base leading-relaxed text-body-dark md:text-lg">
               We engineer sustainable maritime and industrial infrastructure
               &mdash; the vessels, structures and process systems that keep
               heavy industry running while its emissions come down.
@@ -105,7 +77,7 @@ export function ServicesSection() {
               {capabilities.map((cap) => (
                 <div
                   key={cap.title}
-                  className="wl3-reveal group border-t border-line-dark py-7 transition-colors duration-500 hover:border-accent/50"
+                  className="reveal group border-t border-line-dark py-7 transition-colors duration-500 hover:border-accent/50"
                 >
                   <h3 className="text-xl font-semibold tracking-tight text-white md:text-2xl">
                     {cap.title}
@@ -122,7 +94,7 @@ export function ServicesSection() {
         {/* ---- Layered stat band + wide supporting image + CTA ---- */}
         <div className="relative mt-24 grid grid-cols-1 gap-x-10 gap-y-16 md:mt-28 md:grid-cols-12">
           {/* Highlighted statistic, straddling negative space on the left */}
-          <div className="wl3-reveal md:col-span-5 md:self-center">
+          <div className="reveal md:col-span-5 md:self-center">
             <div className="border-t border-white/80 pt-6">
               <p className="text-6xl font-semibold leading-none tracking-tight text-white lg:text-7xl">
                 1.4M<span className="align-top text-2xl text-accent"> t</span>
@@ -148,7 +120,7 @@ export function ServicesSection() {
 
           {/* Supporting image #2, wide renewable-infrastructure strip,
               pulled upward to overlap the stat baseline */}
-          <figure className="wl3-img md:col-span-7 md:-mt-16 md:pl-4">
+          <figure className="reveal-img md:col-span-7 md:-mt-16 md:pl-4">
             <div className="relative aspect-[16/9] w-full overflow-hidden rounded-sm bg-ink-2">
               <img
                 src="/images/chimney.jpg"

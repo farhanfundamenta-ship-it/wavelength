@@ -86,7 +86,7 @@ export default function CaseStudiesPage() {
                   </span>
                 </div>
                 <div className="p-6">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-accent-strong">
+                  <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-accent-deep">
                     {study.sector} &middot; {study.location}
                   </p>
                   <h2 className="mt-2 text-xl font-semibold leading-snug tracking-tight text-heading">

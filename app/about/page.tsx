@@ -209,7 +209,7 @@ export default function AboutPage() {
                 <h3 className="mt-5 text-lg font-semibold tracking-tight text-heading">
                   {member.name}
                 </h3>
-                <p className="mt-1 text-xs font-medium uppercase tracking-[0.15em] text-accent-strong">
+                <p className="mt-1 text-xs font-medium uppercase tracking-[0.15em] text-accent-deep">
                   {member.role}
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-body">{member.bio}</p>

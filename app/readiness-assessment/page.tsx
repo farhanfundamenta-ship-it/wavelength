@@ -205,7 +205,7 @@ export default function ReadinessAssessmentPage() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      <p className="text-base font-semibold tracking-tight text-heading transition-colors duration-300 group-hover:text-accent-strong">
+                      <p className="text-base font-semibold tracking-tight text-heading transition-colors duration-300 group-hover:text-accent-deep">
                         {chapter.title}
                       </p>
                       <p className="mt-1 max-w-md text-sm leading-relaxed text-body">

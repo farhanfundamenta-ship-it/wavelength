@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -14,6 +14,7 @@ export function Header() {
   const [floating, setFloating] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const sentinelRef = useRef<HTMLDivElement>(null);
+  const suppressFocusOpenRef = useRef<string | null>(null);
 
   useEffect(() => {
     const sentinel = sentinelRef.current;
@@ -48,7 +49,7 @@ export function Header() {
           className={cn(
             "mx-auto transition-all duration-[400ms] ease-out",
             floating
-              ? "max-w-6xl rounded-2xl border border-[#E5E7EB] bg-white/80 px-4 shadow-[0_12px_40px_-12px_rgba(10,15,12,0.25)] backdrop-blur-xl md:px-6"
+              ? "max-w-6xl rounded-2xl border border-line bg-white/80 px-4 shadow-[0_12px_40px_-12px_rgba(10,15,12,0.25)] backdrop-blur-xl md:px-6"
               : "max-w-7xl border border-transparent bg-transparent px-6 shadow-none md:px-10"
           )}
         >
@@ -70,42 +71,75 @@ export function Header() {
                     : "text-white/70 hover:text-white"
                 );
 
+                const isOpen = openDropdown === item.label;
+
                 return (
                   <div
                     key={item.label}
                     className="relative"
                     onMouseEnter={() => hasChildren && setOpenDropdown(item.label)}
                     onMouseLeave={() => hasChildren && setOpenDropdown(null)}
+                    onFocus={() => {
+                      if (!hasChildren) return;
+                      if (suppressFocusOpenRef.current === item.label) {
+                        suppressFocusOpenRef.current = null;
+                        return;
+                      }
+                      setOpenDropdown(item.label);
+                    }}
+                    onBlur={(e) => {
+                      if (hasChildren && !e.currentTarget.contains(e.relatedTarget as Node)) {
+                        setOpenDropdown(null);
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (hasChildren && e.key === "Escape") {
+                        setOpenDropdown(null);
+                        suppressFocusOpenRef.current = item.label;
+                        (e.currentTarget.querySelector("a,button") as HTMLElement | null)?.focus();
+                      }
+                    }}
                   >
                     {item.href ? (
-                      <Link href={item.href} className={triggerClassName}>
+                      <Link
+                        href={item.href}
+                        className={triggerClassName}
+                        aria-haspopup={hasChildren ? "true" : undefined}
+                        aria-expanded={hasChildren ? isOpen : undefined}
+                      >
                         {item.label}
                         {hasChildren ? (
                           <Icon
                             name="arrowRight"
                             className={cn(
                               "h-3 w-3 rotate-90 transition-transform duration-200",
-                              openDropdown === item.label && "-rotate-90"
+                              isOpen && "-rotate-90"
                             )}
                           />
                         ) : null}
                       </Link>
                     ) : (
-                      <span className={cn(triggerClassName, "cursor-default")}>
+                      <button
+                        type="button"
+                        className={cn(triggerClassName, "border-0 bg-transparent p-0")}
+                        aria-haspopup={hasChildren ? "true" : undefined}
+                        aria-expanded={hasChildren ? isOpen : undefined}
+                        onClick={() => hasChildren && setOpenDropdown(isOpen ? null : item.label)}
+                      >
                         {item.label}
                         {hasChildren ? (
                           <Icon
                             name="arrowRight"
                             className={cn(
                               "h-3 w-3 rotate-90 transition-transform duration-200",
-                              openDropdown === item.label && "-rotate-90"
+                              isOpen && "-rotate-90"
                             )}
                           />
                         ) : null}
-                      </span>
+                      </button>
                     )}
 
-                    {hasChildren && openDropdown === item.label ? (
+                    {hasChildren && isOpen ? (
                       /* pt-3 (not mt-3) keeps this box flush against the
                          trigger — a margin gap here would be a dead zone
                          the cursor exits through, firing the parent's
@@ -115,7 +149,7 @@ export function Header() {
                           className={cn(
                             "rounded-xl border p-2 shadow-2xl backdrop-blur-xl",
                             floating
-                              ? "border-[#E5E7EB] bg-white/95"
+                              ? "border-line bg-white/95"
                               : "border-white/10 bg-ink/95"
                           )}
                         >
@@ -157,7 +191,7 @@ export function Header() {
               className={cn(
                 "inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 md:hidden",
                 floating
-                  ? "border-[#E5E7EB] text-heading"
+                  ? "border-line text-heading"
                   : "border-white/15 text-white"
               )}
               aria-label={open ? "Close menu" : "Open menu"}
@@ -171,7 +205,7 @@ export function Header() {
             <div
               className={cn(
                 "border-t md:hidden",
-                floating ? "border-[#E5E7EB]" : "border-white/10"
+                floating ? "border-line" : "border-white/10"
               )}
             >
               <div className="flex flex-col gap-1 py-4">

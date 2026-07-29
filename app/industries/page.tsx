@@ -257,7 +257,7 @@ export default function IndustriesPage() {
                 style={{ animationDelay: "0ms" }}
               >
                 One Engineering Partner.
-                <span className="text-accent-strong"> Multiple Industries.</span>
+                <span className="text-accent-deep"> Multiple Industries.</span>
               </h2>
               <p
                 className="ind-reveal mt-6 max-w-md text-base leading-relaxed text-body md:text-lg"
@@ -618,7 +618,7 @@ export default function IndustriesPage() {
                 className="ind-reveal ind-row group grid grid-cols-1 gap-x-10 gap-y-3 border-t border-heading/80 py-8 transition-colors duration-500 hover:border-accent last:border-b sm:grid-cols-12"
               >
                 <h3 className="sm:col-span-4">
-                  <span className="text-xl font-semibold tracking-tight text-heading transition-colors duration-500 group-hover:text-accent-strong md:text-2xl">
+                  <span className="text-xl font-semibold tracking-tight text-heading transition-colors duration-500 group-hover:text-accent-deep md:text-2xl">
                     {h.title}
                   </span>
                 </h3>

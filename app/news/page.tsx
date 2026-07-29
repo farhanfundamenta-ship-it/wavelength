@@ -85,7 +85,7 @@ export default function NewsPage() {
                 />
               </div>
               <div className="md:col-span-5 md:self-center">
-                <p className="text-xs font-medium uppercase tracking-[0.15em] text-accent-strong">
+                <p className="text-xs font-medium uppercase tracking-[0.15em] text-accent-deep">
                   {featured.category} &middot; {formatDate(featured.date)}
                 </p>
                 <h2 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-heading md:text-3xl">
@@ -121,7 +121,7 @@ export default function NewsPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-accent-strong">
+                  <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-accent-deep">
                     {article.category} &middot; {formatDate(article.date)}
                   </p>
                   <h3 className="mt-2 text-lg font-semibold leading-snug tracking-tight text-heading">
