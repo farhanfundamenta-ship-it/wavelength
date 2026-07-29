@@ -3,6 +3,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { CTASection } from "@/components/sections/CTASection";
+import { AskAISection } from "@/components/sections/AskAISection";
 import { Button } from "@/components/buttons/Button";
 import { Icon, type IconName } from "@/components/ui/icons";
 import { team } from "@/data/team/team";
@@ -217,6 +218,9 @@ export default function AboutPage() {
           </div>
         </Container>
       </Section>
+
+      {/* ---- Ask AI ---- */}
+      <AskAISection />
 
       {/* ---- Closing CTA ---- */}
       <CTASection
