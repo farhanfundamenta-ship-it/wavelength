@@ -117,7 +117,10 @@ export function AskAISection() {
   }
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#050505] py-24 text-white md:py-32">
+    <section
+      id="ask-ai"
+      className="relative min-h-screen scroll-mt-0 overflow-hidden bg-[#050505] py-24 text-white md:py-32"
+    >
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-16 px-6 md:px-10 lg:grid-cols-2 lg:gap-12">
         {/* ---- Left: label + headline ---- */}
         <motion.div
