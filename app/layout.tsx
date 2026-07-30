@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/footer/Footer";
-import { AppLoadingScreen } from "@/components/common/AppLoadingScreen";
 import { siteConfig } from "@/config/site/site";
 import "./globals.css";
 
@@ -35,7 +34,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-paper text-heading">
-        <AppLoadingScreen />
+        {/* AppLoadingScreen temporarily disabled */}
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

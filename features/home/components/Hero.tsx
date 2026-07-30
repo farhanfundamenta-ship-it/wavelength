@@ -1,10 +1,13 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/buttons/Button";
+import { MobileHeroTemp } from "@/features/home/components/MobileHeroTemp";
 
 export function Hero() {
   return (
-    <section className="relative h-[95vh] min-h-[720px] overflow-hidden bg-ink md:h-screen">
+    <>
+      <MobileHeroTemp />
+      <section className="relative hidden h-[95vh] min-h-[720px] overflow-hidden bg-ink md:block md:h-screen">
       <Image
         src="/images/hero.jpg"
         alt="Engineered marine and industrial energy infrastructure"
@@ -61,6 +64,7 @@ export function Hero() {
           </div>
         </Container>
       </div>
-    </section>
+      </section>
+    </>
   );
 }
